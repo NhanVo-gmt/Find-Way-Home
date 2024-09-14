@@ -27,7 +27,13 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
         this.gameSceneDirector = gameSceneDirector;
         this.screenManager     = screenManager;
     }
-    
+
+    protected override void OnViewReady()
+    {
+        base.OnViewReady();
+        this.OpenViewAsync().Forget();
+    }
+
     public override UniTask BindData()
     {
         this.View.backButton.onClick.AddListener(GoBackLevelScene);

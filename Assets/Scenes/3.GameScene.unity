@@ -223,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2241449984240862061, guid: 7371e7fbfcacb584eb0ee5bc9d1939ac, type: 3}
       propertyPath: m_ClearFlags
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2241449984240862061, guid: 7371e7fbfcacb584eb0ee5bc9d1939ac, type: 3}
       propertyPath: m_BackGroundColor.a
@@ -340,6 +340,34 @@ PrefabInstance:
     - target: {fileID: 383420067775625194, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
       propertyPath: m_Name
       value: GameScreenView
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805375457902749099, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300096, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+    - target: {fileID: 3474817134589194681, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659919264735022005, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659919264735022005, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659919264735022005, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659919264735022005, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659919264735022005, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8440900854214360450, guid: a458f5838d1aff6468a74ef606cfbd74, type: 3}
       propertyPath: m_Pivot.x
