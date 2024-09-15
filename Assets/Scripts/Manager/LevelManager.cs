@@ -104,6 +104,11 @@ namespace UserData.Controller
             GetCurrentLevelLog().OnCompleted += ShowCompletedScreen;
         }
 
+        public void FinishLevel()
+        {
+            GetCurrentLevelLog().Finish();
+        }
+
         public void ShowCompletedScreen()
         {
             this.screenManager.OpenScreen<GameCompletePopupPresenter, LevelLog>(GetCurrentLevelLog());

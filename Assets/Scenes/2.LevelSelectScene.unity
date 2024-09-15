@@ -140,11 +140,19 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3005927997800001645, guid: f5420641f9b64a841949eb51432bbacb, type: 3}
+      propertyPath: _Params._ContentPadding.m_Top
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005927997800001645, guid: f5420641f9b64a841949eb51432bbacb, type: 3}
       propertyPath: _Params._ContentPadding.m_Left
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3005927997800001645, guid: f5420641f9b64a841949eb51432bbacb, type: 3}
       propertyPath: _Params._ContentPadding.m_Right
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005927997800001645, guid: f5420641f9b64a841949eb51432bbacb, type: 3}
+      propertyPath: _Params._ContentPadding.m_Bottom
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8440900854214360450, guid: f5420641f9b64a841949eb51432bbacb, type: 3}
