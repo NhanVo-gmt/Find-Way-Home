@@ -1,12 +1,18 @@
-Id,IsUnlockedByDefault,Name,ItemId,ItemNumber,RewardId,RewardNumber
-1,TRUE,The Zoo,Tiger,1,Coin,10
-,,,Giraffe,1,,
-,,,Elephant,1,,
-,,,Horse,1,,
-,,,Lion,1,,
-,,,Fish,1,,
-2,FALSE,The Room,Turtle,1,,
-,,,Leopard,1,,
-,,,Panda,1,,
-,,,Bear,1,,
-3,FALSE,The Supermarket,Phone,7,,
+Id,IsUnlockedByDefault,Name
+1,TRUE,The Zoo
+2,FALSE,The Room
+3,FALSE,The Supermarket
+4,TRUE,The Zoo
+5,FALSE,The Room
+6,FALSE,The Supermarket
+7,TRUE,The Zoo
+8,FALSE,The Room
+9,FALSE,The Supermarket
+10,TRUE,The Zoo
+11,FALSE,The Room
+12,FALSE,The Supermarket
+13,TRUE,The Zoo
+14,FALSE,The Room
+15,FALSE,The Supermarket
+16,TRUE,The Zoo
+17,FALSE,The Room

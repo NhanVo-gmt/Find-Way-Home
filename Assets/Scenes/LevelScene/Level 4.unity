@@ -417,6 +417,10 @@ PrefabInstance:
       value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: controllerButtons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: controllerButtons.Array.data[1]
       value: 
       objectReference: {fileID: 0}
@@ -1532,6 +1536,18 @@ PrefabInstance:
     - target: {fileID: 6218917685232546607, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: controllerButtons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: controllerButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: controllerButtons.Array.data[2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7420615746838051892, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: m_LocalScale.x
