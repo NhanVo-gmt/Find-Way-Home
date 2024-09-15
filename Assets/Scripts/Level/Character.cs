@@ -8,8 +8,13 @@ public class Character : MonoBehaviour
     [SerializeField] private Controller controller;
     [SerializeField] private float      speed;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.position += (Vector3)(controller.horizontalInput * Vector2.right + controller.verticalInput * Vector2.up) * speed * Time.deltaTime;
+        Move();
+    }
+
+    void Move()
+    {
+        transform.position += (Vector3)(controller.horizontalInput * Vector2.right + controller.verticalInput * Vector2.up) * speed * Time.fixedDeltaTime;
     }
 }

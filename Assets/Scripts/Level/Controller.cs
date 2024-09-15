@@ -43,16 +43,16 @@ public class Controller : MonoBehaviour
         switch (button.direction)
         {
             case ControllerButton.ButtonDirection.Up:
-                verticalInput = 0f;
+                if (verticalInput > 0f) verticalInput = 0f;
                 break;
             case ControllerButton.ButtonDirection.Down:
-                verticalInput = 0f;
+                if (verticalInput < 0f) verticalInput = 0f;
                 break;
             case ControllerButton.ButtonDirection.Left:
-                horizontalInput = 0f;
+                if (horizontalInput < 0f) horizontalInput = 0f;
                 break;
             case ControllerButton.ButtonDirection.Right:
-                horizontalInput = 0f;
+                if (horizontalInput > 0f) horizontalInput = 0f;
                 break;
         }
     }
