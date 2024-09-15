@@ -46,6 +46,13 @@ namespace GameFoundationBridge
             await this.LoadMultipleSceneBySceneManagerAsync(SceneName.GameScene, SceneName.GameScene, levelName);
         }
         
+        public async UniTask ReloadLevelScene(string id)
+        {
+            await loadingScreenView.Show();
+            
+            string levelName = $"Level {id}";
+            await this.LoadMultipleSceneBySceneManagerAsync(SceneName.GameScene, SceneName.GameScene, levelName);
+        }
 
         #endregion
     }

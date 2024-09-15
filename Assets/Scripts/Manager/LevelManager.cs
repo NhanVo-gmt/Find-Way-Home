@@ -7,24 +7,28 @@ namespace UserData.Controller
     using UserData.Model;
     using System.Linq;
     using Blueprints;
+    using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
+    using GameFoundationBridge;
 
     public class LevelManager : BaseDataManager<UserProfile>
     {
         #region Inject
 
-        private readonly LevelBlueprint         levelBlueprint;
-        private readonly ScreenManager          screenManager;
+        private readonly LevelBlueprint    levelBlueprint;
+        private readonly ScreenManager     screenManager;
+        private readonly GameSceneDirector gameSceneDirector;
 
         #endregion
 
         public Action OnUseHint;
         
-        public LevelManager(MasterDataManager masterDataManager, LevelBlueprint levelBlueprint, ScreenManager screenManager 
-                            ) : base(masterDataManager)
+        public LevelManager(MasterDataManager masterDataManager, LevelBlueprint levelBlueprint, ScreenManager screenManager, 
+                            GameSceneDirector gameSceneDirector) : base(masterDataManager)
         {
-            this.levelBlueprint  = levelBlueprint;
-            this.screenManager   = screenManager;
+            this.levelBlueprint    = levelBlueprint;
+            this.screenManager     = screenManager;
+            this.gameSceneDirector = gameSceneDirector;
         }
 
         protected override void OnDataLoaded()
@@ -96,12 +100,14 @@ namespace UserData.Controller
 
         #region In Game
         
-        public void SelectLevel(LevelRecord levelRecord)
+        public async UniTask SelectLevel(LevelRecord levelRecord)
         {
             GetCurrentLevelLog().OnCompleted -= ShowCompletedScreen;
                 
             this.Data.CurrentLevelId         =  levelRecord.Id;
             GetCurrentLevelLog().OnCompleted += ShowCompletedScreen;
+            
+            await LoadSelectedLevelScene();
         }
 
         public void FinishLevel()
@@ -112,6 +118,20 @@ namespace UserData.Controller
         public void ShowCompletedScreen()
         {
             this.screenManager.OpenScreen<GameCompletePopupPresenter, LevelLog>(GetCurrentLevelLog());
+        }
+
+        #endregion
+
+        #region Scene
+
+        public void ReloadLevel()
+        {
+            LoadSelectedLevelScene().Forget();
+        }
+
+        async UniTask LoadSelectedLevelScene()
+        {
+            await this.gameSceneDirector.LoadLevelScene(this.Data.CurrentLevelId);
         }
 
         #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blueprints;
+using Cysharp.Threading.Tasks;
 using GameFoundation.Scripts.AssetLibrary;
 using GameFoundation.Scripts.UIModule.MVP;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
@@ -64,16 +65,9 @@ public class SelectLevelItemPresenter : BaseUIItemPresenter<SelectLevelItemView,
         {
             this.View.button.onClick.RemoveAllListeners();
             
-            levelManager.SelectLevel(this.model.levelRecord);
-            await LoadSelectedLevelScene();
+            levelManager.SelectLevel(this.model.levelRecord).Forget();
         });
         this.View.title.text = $"{model.levelRecord.Id}. {model.levelRecord.Name}";
-    }
-
-
-    async Task LoadSelectedLevelScene()
-    {
-        await this.gameSceneDirector.LoadLevelScene(this.model.levelRecord.Id);
     }
 
     public override void Dispose()
