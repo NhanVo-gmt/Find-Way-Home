@@ -20,6 +20,24 @@ namespace UserData.Model
 
         [JsonIgnore] public LevelRecord LevelRecord;
         [JsonIgnore] public Action      OnCompleted;
+
+        public void Finish()
+        {
+            ChangeState(State.Complete);
+        }
+
+        public void ChangeState(State newState)
+        {
+            if (LevelState >= newState) return;
+
+            LevelState = newState;
+            switch (LevelState)
+            {
+                case State.Complete:
+                    OnCompleted?.Invoke();
+                    break;
+            }
+        }
     }
 
 

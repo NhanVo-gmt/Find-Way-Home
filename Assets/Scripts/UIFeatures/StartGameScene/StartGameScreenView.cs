@@ -30,8 +30,18 @@ public class StartGameScreenPresenter : BaseScreenPresenter<StartGameScreenView>
 
     public override UniTask BindData()
     {
-        this.View.startButton.onClick.AddListener(GoToLevelScreen);
-        this.View.quitButton.onClick.AddListener(Application.Quit);
+        this.View.startButton.onClick.AddListener(() =>
+        {
+            this.View.startButton.onClick.RemoveAllListeners();
+            GoToLevelScreen();
+        });
+        
+        this.View.quitButton.onClick.AddListener(() =>
+        {
+            this.View.quitButton.onClick.RemoveAllListeners();
+            Application.Quit();
+        });
+        
         return UniTask.CompletedTask;
     }
     protected override void OnViewReady()
