@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private List<ControllerButton> controllerButtons;
+    [SerializeField] private List<ControllerButtonWithDirection> controllerButtons;
 
     public float horizontalInput { get; private set; } = 0;
     public float verticalInput   { get; private set; } = 0;
@@ -14,46 +14,67 @@ public class Controller : MonoBehaviour
     {
         foreach (var controllerButton in controllerButtons)
         {
-            controllerButton.OnClickButton += Move;
-            controllerButton.OnExitButton += Stop;
+            controllerButton.button.OnClickButton += () =>
+            {
+                Move(controllerButton);
+            };
+            controllerButton.button.OnExitButton += () =>
+            {
+                Stop(controllerButton);
+            };
         }
     }
     
-    private void Move(ControllerButton button)
+    private void Move(ControllerButtonWithDirection button)
     {
         switch (button.direction)
         {
-            case ControllerButton.ButtonDirection.Up:
+            case ButtonDirection.Up:
                 verticalInput = 1f;
                 break;
-            case ControllerButton.ButtonDirection.Down:
+            case ButtonDirection.Down:
                 verticalInput = -1f;
                 break;
-            case ControllerButton.ButtonDirection.Left:
+            case ButtonDirection.Left:
                 horizontalInput = -1f;
                 break;
-            case ControllerButton.ButtonDirection.Right:
+            case ButtonDirection.Right:
                 horizontalInput = 1f;
                 break;
         }
     }
     
-    private void Stop(ControllerButton button)
+    private void Stop(ControllerButtonWithDirection button)
     {
         switch (button.direction)
         {
-            case ControllerButton.ButtonDirection.Up:
+            case ButtonDirection.Up:
                 if (verticalInput > 0f) verticalInput = 0f;
                 break;
-            case ControllerButton.ButtonDirection.Down:
+            case ButtonDirection.Down:
                 if (verticalInput < 0f) verticalInput = 0f;
                 break;
-            case ControllerButton.ButtonDirection.Left:
+            case ButtonDirection.Left:
                 if (horizontalInput < 0f) horizontalInput = 0f;
                 break;
-            case ControllerButton.ButtonDirection.Right:
+            case ButtonDirection.Right:
                 if (horizontalInput > 0f) horizontalInput = 0f;
                 break;
         }
     }
+}
+
+[Serializable]
+public class ControllerButtonWithDirection
+{
+    public ControllerButton button;
+    public ButtonDirection  direction;
+}
+
+public enum ButtonDirection
+{
+    Up,
+    Down,
+    Left,
+    Right
 }

@@ -5,17 +5,8 @@ using UnityEngine;
 
 public class ControllerButton : MonoBehaviour
 {
-    public enum ButtonDirection
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
-    public ButtonDirection          direction;
-    public Action<ControllerButton> OnClickButton;
-    public Action<ControllerButton> OnExitButton;
+    public Action OnClickButton;
+    public Action OnExitButton;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,11 +26,11 @@ public class ControllerButton : MonoBehaviour
 
     public void OnClick()
     {
-        OnClickButton?.Invoke(this);
+        OnClickButton?.Invoke();
     }
 
     public void OnExit()
     {
-        OnExitButton?.Invoke(this);
+        OnExitButton?.Invoke();
     }
 }
