@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1549466400, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 2
 --- !u!58 &2310952497246881856
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -209,7 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1798329572, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
 --- !u!58 &7522082863877305701
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -317,10 +315,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerButtons:
-  - {fileID: 6959018796592350830}
-  - {fileID: 2137628640774438629}
-  - {fileID: 3262275537861697845}
-  - {fileID: 6406378165020949972}
+  - button: {fileID: 0}
+    direction: 0
+  - button: {fileID: 0}
+    direction: 0
+  - button: {fileID: 0}
+    direction: 0
+  - button: {fileID: 0}
+    direction: 0
 --- !u!1 &6546279410200692671
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +398,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1039911681, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -419,7 +421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
 --- !u!58 &3740445987526660804
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 541313584, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -553,7 +554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 3
 --- !u!58 &6116084496052989278
 CircleCollider2D:
   m_ObjectHideFlags: 0
