@@ -346,6 +346,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartGameScreenView
       objectReference: {fileID: 0}
+    - target: {fileID: 4525491615071225976, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4f4b9245c78f3a6459502d492dd0f6a9, type: 3}
+    - target: {fileID: 5998361872606185516, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6900789700484554141, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -427,7 +435,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5998361872606185516, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
