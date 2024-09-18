@@ -330,8 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 5620273094105358279}
-  stagePrefab: {fileID: 7202225443393155543}
-  stageContent: {fileID: 783713999006230350}
+  stageViews: []
 --- !u!1 &5134412055796003655
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +389,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 200, y: 100}
+  m_Spacing: {x: 150, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!1 &7146039887112493779
@@ -534,6 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 6447384724399344955}
+  numText: {fileID: 0}
 --- !u!1 &7758586585762641424
 GameObject:
   m_ObjectHideFlags: 0
