@@ -1,17 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Blueprints;
 using Cysharp.Threading.Tasks;
 using GameFoundation.Scripts.AssetLibrary;
 using GameFoundation.Scripts.UIModule.MVP;
-using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.ObjectPool;
 using GameFoundationBridge;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UserData.Controller;
 using Zenject;
@@ -28,8 +24,8 @@ public class SelectLevelItemModel
 
 public class SelectLevelItemView : TViewMono
 {
-    public Button          button;
     public TextMeshProUGUI title;
+    public SelectStageView[] stageViews;
 }
 
 
@@ -40,40 +36,38 @@ public class SelectLevelItemPresenter : BaseUIItemPresenter<SelectLevelItemView,
 
     private readonly ObjectPoolManager objectPoolManager;
     private readonly DiContainer       diContainer;
-    private readonly GameSceneDirector gameSceneDirector;
-    private readonly LevelManager      levelManager;
 
     #endregion
 
     private SelectLevelItemModel  model;
     
     public SelectLevelItemPresenter(IGameAssets gameAssets, ObjectPoolManager objectPoolManager, 
-                                    DiContainer diContainer, GameSceneDirector gameSceneDirector, 
-                                    LevelManager levelManager) : base(gameAssets)
+                                    DiContainer diContainer) : base(gameAssets)
     {
         this.objectPoolManager = objectPoolManager;
         this.diContainer       = diContainer;
-        this.gameSceneDirector = gameSceneDirector;
-        this.levelManager      = levelManager;
     }
     
     public override void BindData(SelectLevelItemModel model)
     {
         this.model = model;
-
-        this.View.button.onClick.AddListener(async () =>
-        {
-            this.View.button.onClick.RemoveAllListeners();
-            
-            levelManager.SelectLevel(this.model.levelRecord).Forget();
-        });
+        
+        InitializeStage();
+        
         this.View.title.text = $"{model.levelRecord.Id}. {model.levelRecord.Name}";
+    }
+
+    void InitializeStage()
+    {
+        for (int i = 0; i < this.View.stageViews.Length; i++)
+        {
+            this.View.stageViews[i].BindData(model.levelRecord, i + 1);
+        }
     }
 
     public override void Dispose()
     {
         base.Dispose();
-        this.View.button.onClick.RemoveAllListeners();
     }
 }
 

@@ -100,11 +100,12 @@ namespace UserData.Controller
 
         #region In Game
         
-        public async UniTask SelectLevel(LevelRecord levelRecord)
+        public async UniTask SelectLevel(LevelRecord levelRecord, int index)
         {
             GetCurrentLevelLog().OnCompleted -= ShowCompletedScreen;
                 
             this.Data.CurrentLevelId         =  levelRecord.Id;
+            this.Data.CurrentLevelIndex      =  index;
             GetCurrentLevelLog().OnCompleted += ShowCompletedScreen;
             
             await LoadSelectedLevelScene();
@@ -131,7 +132,7 @@ namespace UserData.Controller
 
         async UniTask LoadSelectedLevelScene()
         {
-            await this.gameSceneDirector.LoadLevelScene(this.Data.CurrentLevelId);
+            await this.gameSceneDirector.LoadLevelScene(this.Data.CurrentLevelId, this.Data.CurrentLevelIndex);
         }
 
         #endregion

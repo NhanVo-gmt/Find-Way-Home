@@ -9,7 +9,8 @@ namespace UserData.Model
 
     public  class UserProfile : IUserData, ILocalData
     {
-        public string                       CurrentLevelId { get; set; } = "";
+        public string                       CurrentLevelId    { get; set; } = "";
+        public int                          CurrentLevelIndex { get; set; } = 0;
         public Dictionary<string, LevelLog> levelLogs;
     }
     
