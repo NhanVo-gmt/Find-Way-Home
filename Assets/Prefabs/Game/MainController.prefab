@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: -1549466400, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
+  pressed: {fileID: -62439130, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
 --- !u!58 &2310952497246881856
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -231,6 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: -1798329572, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
+  pressed: {fileID: 1839685137, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
 --- !u!58 &7522082863877305701
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -315,14 +319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerButtons:
-  - button: {fileID: 0}
+  - button: {fileID: 6959018796592350830}
     direction: 0
-  - button: {fileID: 0}
-    direction: 0
-  - button: {fileID: 0}
-    direction: 0
-  - button: {fileID: 0}
-    direction: 0
+  - button: {fileID: 2137628640774438629}
+    direction: 1
+  - button: {fileID: 3262275537861697845}
+    direction: 2
+  - button: {fileID: 6406378165020949972}
+    direction: 3
 --- !u!1 &6546279410200692671
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: 1039911681, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
+  pressed: {fileID: -326393021, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
 --- !u!58 &3740445987526660804
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -554,6 +560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0891d72ab00a9d540a35c4b8f31be5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: 541313584, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
+  pressed: {fileID: -1900834061, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
 --- !u!58 &6116084496052989278
 CircleCollider2D:
   m_ObjectHideFlags: 0

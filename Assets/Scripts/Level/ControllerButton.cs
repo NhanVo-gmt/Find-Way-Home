@@ -7,7 +7,17 @@ public class ControllerButton : MonoBehaviour
 {
     public Action OnClickButton;
     public Action OnExitButton;
-    
+
+    public Sprite normal;
+    public Sprite pressed;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Character>())
@@ -26,11 +36,13 @@ public class ControllerButton : MonoBehaviour
 
     public void OnClick()
     {
+        spriteRenderer.sprite = pressed;
         OnClickButton?.Invoke();
     }
 
     public void OnExit()
     {
+        spriteRenderer.sprite = normal;
         OnExitButton?.Invoke();
     }
 }

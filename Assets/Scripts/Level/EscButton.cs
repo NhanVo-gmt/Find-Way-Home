@@ -1,3 +1,4 @@
+using System;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using UnityEngine;
@@ -6,6 +7,18 @@ using Zenject;
 public class EscButton : MonoBehaviour
 {
     [Inject] private IScreenManager screenManager;
+
+    public Sprite normal;
+    public Sprite pressed;
+    
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer        = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = normal;
+    }
+    
 
     private void Start()
     {
@@ -16,6 +29,7 @@ public class EscButton : MonoBehaviour
     {
         if (other.GetComponent<Character>())
         {
+            spriteRenderer.sprite = pressed;
             this.screenManager.OpenScreen<GameLosePresenter>();
         }
     }
