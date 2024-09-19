@@ -25,6 +25,7 @@ namespace UserData.Model
         public void Finish()
         {
             ChangeState(State.Complete);
+            OnCompleted?.Invoke();
         }
 
         public void ChangeState(State newState)
@@ -32,12 +33,6 @@ namespace UserData.Model
             if (LevelState >= newState) return;
 
             LevelState = newState;
-            switch (LevelState)
-            {
-                case State.Complete:
-                    OnCompleted?.Invoke();
-                    break;
-            }
         }
     }
 

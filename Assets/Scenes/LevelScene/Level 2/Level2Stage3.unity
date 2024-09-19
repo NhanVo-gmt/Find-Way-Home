@@ -511,7 +511,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!1001 &720762681
 PrefabInstance:
@@ -568,7 +571,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!1001 &773130622
 PrefabInstance:
@@ -625,7 +631,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!4 &961531324 stripped
 Transform:
@@ -749,7 +758,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!1 &1051077175
 GameObject:
@@ -1168,7 +1180,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!1001 &1457620017
 PrefabInstance:
@@ -1225,7 +1240,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!1 &1480749211
 GameObject:
@@ -1348,7 +1366,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4772025945100742716, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
 --- !u!114 &2125019935 stripped
 MonoBehaviour:
@@ -1586,6 +1607,14 @@ PrefabInstance:
     - target: {fileID: 6393709121844185193, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: controllerButtons.Array.data[3].direction
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965108279425659202, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965108279425659202, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7420615746838051892, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: m_LocalScale.x

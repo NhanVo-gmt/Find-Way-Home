@@ -1313,6 +1313,10 @@ PrefabInstance:
       propertyPath: controllerButtons.Array.data[3].direction
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6965108279425659202, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.07
+      objectReference: {fileID: 0}
     - target: {fileID: 7420615746838051892, guid: 0ae092418e3b9894eb757843cfe0f637, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
