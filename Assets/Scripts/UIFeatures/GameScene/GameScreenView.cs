@@ -23,10 +23,11 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
     private readonly LevelManager      levelManager;
     
     
-    public GameScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector, IScreenManager screenManager) : base(signalBus)
+    public GameScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector, IScreenManager screenManager, LevelManager levelManager) : base(signalBus)
     {
         this.gameSceneDirector = gameSceneDirector;
         this.screenManager     = screenManager;
+        this.levelManager      = levelManager;
     }
 
     protected override void OnViewReady()
