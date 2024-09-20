@@ -4,6 +4,7 @@ namespace GameFoundationBridge
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.AssetLibrary;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
+    using UnityEngine;
     using UnityEngine.SceneManagement;
     using Zenject;
 
@@ -36,6 +37,7 @@ namespace GameFoundationBridge
         {
             // await loadingScreenView.Show();
             await this.LoadSingleSceneBySceneManagerAsync(SceneName.LevelSelectScene);
+            Time.timeScale = 1f;
         }
         
         public async UniTask LoadLevelScene(string id, int index)
@@ -44,6 +46,7 @@ namespace GameFoundationBridge
             
             string levelName = $"Level{id}Stage{index}";
             await this.LoadMultipleSceneBySceneManagerAsync(SceneName.GameScene, SceneName.GameScene, levelName);
+            Time.timeScale = 1f;
         }
 
         #endregion

@@ -10,6 +10,7 @@ namespace UserData.Controller
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
     using GameFoundationBridge;
+    using UnityEngine;
 
     public class LevelManager : BaseDataManager<UserProfile>
     {
@@ -20,8 +21,6 @@ namespace UserData.Controller
         private readonly GameSceneDirector gameSceneDirector;
 
         #endregion
-
-        public Action OnUseHint;
         
         public LevelManager(MasterDataManager masterDataManager, LevelBlueprint levelBlueprint, ScreenManager screenManager, 
                             GameSceneDirector gameSceneDirector) : base(masterDataManager)
@@ -88,6 +87,11 @@ namespace UserData.Controller
             return levelBlueprint[this.Data.CurrentLevelId];
         }
 
+        public int GetCurrentLevelIndex()
+        {
+            return this.Data.CurrentLevelIndex;
+        }
+
         public LevelLog GetCurrentLevelLog()
         {
             return this.Data.levelLogs[GetCurrentLevel().Id];
@@ -118,7 +122,14 @@ namespace UserData.Controller
 
         public void ShowCompletedScreen()
         {
+            Time.timeScale = 0f;
             this.screenManager.OpenScreen<GameCompletePopupPresenter, LevelLog>(GetCurrentLevelLog());
+        }
+
+        public void ShowLoseScreen()
+        {
+            Time.timeScale = 0f;
+            this.screenManager.OpenScreen<GameLosePresenter>();
         }
 
         #endregion
