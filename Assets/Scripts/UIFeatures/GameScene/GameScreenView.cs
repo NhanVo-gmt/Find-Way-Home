@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
 using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
 using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundationBridge;
-using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+using UserData.Controller;
 using Zenject;
 
 public class GameScreenView : BaseView
 {
-    public Button backButton;
-    public Button settingButton;
+    public TextMeshProUGUI levelText;
+    public Button          backButton;
+    public Button          settingButton;
 }
 
 [ScreenInfo(nameof(GameScreenView))]
@@ -20,6 +20,7 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
 {
     private readonly GameSceneDirector gameSceneDirector;
     private readonly IScreenManager    screenManager;
+    private readonly LevelManager      levelManager;
     
     
     public GameScreenPresenter(SignalBus signalBus, GameSceneDirector gameSceneDirector, IScreenManager screenManager) : base(signalBus)
@@ -36,6 +37,7 @@ public class GameScreenPresenter : BaseScreenPresenter<GameScreenView>
 
     public override UniTask BindData()
     {
+        this.View.levelText.text = $"Level {levelManager.GetCurrentLevel().Id}-{levelManager.GetCurrentLevelIndex()}";
         this.View.backButton.onClick.AddListener(GoBackLevelScene);
         this.View.settingButton.onClick.AddListener(OpenSettingScreen);
         return UniTask.CompletedTask;

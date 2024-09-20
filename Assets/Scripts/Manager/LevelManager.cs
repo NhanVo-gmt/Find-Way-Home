@@ -21,8 +21,6 @@ namespace UserData.Controller
         private readonly GameSceneDirector gameSceneDirector;
 
         #endregion
-
-        public Action OnUseHint;
         
         public LevelManager(MasterDataManager masterDataManager, LevelBlueprint levelBlueprint, ScreenManager screenManager, 
                             GameSceneDirector gameSceneDirector) : base(masterDataManager)
@@ -87,6 +85,11 @@ namespace UserData.Controller
         public LevelRecord GetCurrentLevel()
         {
             return levelBlueprint[this.Data.CurrentLevelId];
+        }
+
+        public int GetCurrentLevelIndex()
+        {
+            return this.Data.CurrentLevelIndex;
         }
 
         public LevelLog GetCurrentLevelLog()
