@@ -41,7 +41,7 @@ public class LoadingScreenView : MonoBehaviour
         var sequence = DOTween.Sequence();
         sequence.Append(canvasGroup.DOFade(0f, 0f));
         sequence.Append(canvasGroup.DOFade(1f, 1f).SetEase(Ease.Linear));
-        sequence.AppendInterval(1f);
+        sequence.AppendInterval(0.5f);
         
         await sequence.AsyncWaitForCompletion();
     }
