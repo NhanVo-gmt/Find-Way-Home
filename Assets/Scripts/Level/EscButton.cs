@@ -1,12 +1,11 @@
-using System;
-using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
 using GameFoundation.Scripts.Utilities.Extension;
 using UnityEngine;
+using UserData.Controller;
 using Zenject;
 
 public class EscButton : MonoBehaviour
 {
-    [Inject] private IScreenManager screenManager;
+    [Inject] private LevelManager levelManager;
 
     public Sprite normal;
     public Sprite pressed;
@@ -30,7 +29,7 @@ public class EscButton : MonoBehaviour
         if (other.GetComponent<Character>())
         {
             spriteRenderer.sprite = pressed;
-            this.screenManager.OpenScreen<GameLosePresenter>();
+            levelManager.ShowLoseScreen();
         }
     }
     

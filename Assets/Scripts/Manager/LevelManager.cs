@@ -10,6 +10,7 @@ namespace UserData.Controller
     using Cysharp.Threading.Tasks;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
     using GameFoundationBridge;
+    using UnityEngine;
 
     public class LevelManager : BaseDataManager<UserProfile>
     {
@@ -118,7 +119,14 @@ namespace UserData.Controller
 
         public void ShowCompletedScreen()
         {
+            Time.timeScale = 0f;
             this.screenManager.OpenScreen<GameCompletePopupPresenter, LevelLog>(GetCurrentLevelLog());
+        }
+
+        public void ShowLoseScreen()
+        {
+            Time.timeScale = 0f;
+            this.screenManager.OpenScreen<GameLosePresenter>();
         }
 
         #endregion
