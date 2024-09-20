@@ -10,16 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreenView : MonoBehaviour
 {
-    [SerializeField] private RectTransform leftGameObject;
-    [SerializeField] private RectTransform rightGameObject;
     [SerializeField] private CanvasGroup canvasGroup;
-
-    [Header("Lerp")]
-    [SerializeField] private float easeInTime = 1f;
-    [SerializeField] private float wordFadeTime = 0.5f;
-
-    private Vector3 startLeftPos = new Vector3(-600, 0, 0);
-    private Vector3 startRightPos = new Vector3(600, 0, 0);
 
     private bool isAnimate = false;
 
@@ -47,35 +38,16 @@ public class LoadingScreenView : MonoBehaviour
 
     public async UniTask Show()
     {
-        isAnimate = true;
-        
         var sequence = DOTween.Sequence();
-        sequence.AppendCallback(() =>
-        {
-            leftGameObject.DOAnchorPos(Vector3.one, easeInTime).SetEase(Ease.InOutSine);
-            rightGameObject.DOAnchorPos(Vector3.one, easeInTime).SetEase(Ease.InOutSine);
-        });
-        sequence.AppendInterval(easeInTime);
-        sequence.Append(canvasGroup.DOFade(1, wordFadeTime));
-        sequence.AppendInterval(0.2f);
-
-        sequence.OnComplete(() =>
-        {
-            isAnimate = false;
-        });
-
+        sequence.Append(canvasGroup.DOFade(0f, 0f));
+        sequence.Append(canvasGroup.DOFade(1f, 1f).SetEase(Ease.Linear));
+        sequence.AppendInterval(0.5f);
+        
         await sequence.AsyncWaitForCompletion();
     }
 
     async void Hide()
     {
-        await UniTask.WaitUntil(() => !isAnimate);
-        canvasGroup.DOFade(0, wordFadeTime).OnComplete(() =>
-        {
-            leftGameObject.DOAnchorPos(startLeftPos, easeInTime).SetEase(Ease.InOutSine);
-            rightGameObject.DOAnchorPos(startRightPos, easeInTime).SetEase(Ease.InOutSine);
-        });
-        
-        
+        await canvasGroup.DOFade(0f, 1f).SetEase(Ease.Linear).AsyncWaitForCompletion();
     }
 }
