@@ -40,8 +40,6 @@ public class GameLosePresenter : BasePopupPresenter<GameLosePopupView>
             this.View.goToMenuButton.onClick.RemoveAllListeners();
             this.gameSceneDirector.LoadLevelSelectScene().Forget();
         });
-
-        Time.timeScale = 0f;
         
         return UniTask.CompletedTask;
     }

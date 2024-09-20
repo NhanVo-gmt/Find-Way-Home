@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameFoundation.Scripts.Utilities.Extension;
 using UnityEngine;
+using UserData.Controller;
+using Zenject;
 
 public class Character : MonoBehaviour
 {
@@ -12,16 +15,21 @@ public class Character : MonoBehaviour
     private CharacterVisual visual; 
     
     public Action<CharacterState> OnChangeState;
+
+    [Inject] private LevelManager levelManager;
     
 
     private void Awake()
     {
+        this.GetCurrentContainer().Inject(this);
         visual = GetComponentInChildren<CharacterVisual>();
         
     }
 
     private void Update()
     {
+        if (levelManager.IsGameOver) return;
+        
         if (controller.horizontalInput != 0 || controller.verticalInput != 0)
         {
             ChangeState(CharacterState.Move);
@@ -31,6 +39,8 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (levelManager.IsGameOver) return;
+        
         Move();
     }
 

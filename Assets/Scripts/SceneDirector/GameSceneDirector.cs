@@ -38,7 +38,6 @@ namespace GameFoundationBridge
             await loadingScreenView.Show();
             
             await this.LoadSingleSceneBySceneManagerAsync(SceneName.LevelSelectScene);
-            Time.timeScale = 1f;
         }
         
         public async UniTask LoadLevelScene(string id, int index)
@@ -47,7 +46,6 @@ namespace GameFoundationBridge
             
             string levelName = $"Level{id}Stage{index}";
             await this.LoadMultipleSceneBySceneManagerAsync(SceneName.GameScene, SceneName.GameScene, levelName);
-            Time.timeScale = 1f;
         }
 
         #endregion

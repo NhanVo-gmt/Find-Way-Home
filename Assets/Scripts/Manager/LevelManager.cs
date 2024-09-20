@@ -21,6 +21,8 @@ namespace UserData.Controller
         private readonly GameSceneDirector gameSceneDirector;
 
         #endregion
+
+        public bool IsGameOver { get; private set; } = false;
         
         public LevelManager(MasterDataManager masterDataManager, LevelBlueprint levelBlueprint, ScreenManager screenManager, 
                             GameSceneDirector gameSceneDirector) : base(masterDataManager)
@@ -106,6 +108,8 @@ namespace UserData.Controller
         
         public async UniTask SelectLevel(LevelRecord levelRecord, int index)
         {
+            IsGameOver = false;
+            
             GetCurrentLevelLog().OnCompleted -= ShowCompletedScreen;
                 
             this.Data.CurrentLevelId         =  levelRecord.Id;
@@ -122,13 +126,13 @@ namespace UserData.Controller
 
         public void ShowCompletedScreen()
         {
-            Time.timeScale = 0f;
+            IsGameOver = true;
             this.screenManager.OpenScreen<GameCompletePopupPresenter, LevelLog>(GetCurrentLevelLog());
         }
 
         public void ShowLoseScreen()
         {
-            Time.timeScale = 0f;
+            IsGameOver = true;
             this.screenManager.OpenScreen<GameLosePresenter>();
         }
 

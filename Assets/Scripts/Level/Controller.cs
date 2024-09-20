@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UserData.Controller;
+using Zenject;
 
 public class Controller : MonoBehaviour
 {
@@ -9,9 +11,13 @@ public class Controller : MonoBehaviour
 
     public float horizontalInput { get; private set; } = 0;
     public float verticalInput   { get; private set; } = 0;
+
+    [Inject] private LevelManager levelManager;
     
     private void Awake()
     {
+        
+        
         foreach (var controllerButton in controllerButtons)
         {
             controllerButton.button.OnClickButton += () =>
