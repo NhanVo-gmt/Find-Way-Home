@@ -144,7 +144,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2129917680701584374}
   - component: {fileID: 4508475538802605267}
-  - component: {fileID: 3362210510038944898}
   m_Layer: 5
   m_Name: SelectLevelItemView
   m_TagString: Untagged
@@ -181,20 +180,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4148187428460229560}
   m_CullTransparentMesh: 1
---- !u!114 &3362210510038944898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4148187428460229560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ea417c80824414aa976a7f472b31a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 5620273094105358279}
-  stageViews: []
 --- !u!1 &5134412055796003655
 GameObject:
   m_ObjectHideFlags: 0
