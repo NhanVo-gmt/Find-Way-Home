@@ -12,6 +12,9 @@ public class Character : MonoBehaviour
     [SerializeField] private Controller controller;
     [SerializeField] private float      speed;
 
+    [Header("Test")]
+    [SerializeField] private bool testing = false;
+
     private CharacterVisual visual; 
     
     public Action<CharacterState> OnChangeState;
@@ -28,7 +31,7 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        if (levelManager.IsGameOver) return;
+        if (!testing && levelManager.IsGameOver) return;
         
         if (controller.horizontalInput != 0 || controller.verticalInput != 0)
         {
@@ -39,7 +42,7 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (levelManager.IsGameOver) return;
+        if (!testing && levelManager.IsGameOver) return;
         
         Move();
     }
