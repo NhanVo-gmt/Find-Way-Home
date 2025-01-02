@@ -36,7 +36,7 @@ namespace DIContexts
             //Common Event System
             this.Container.Bind<EventSystem>().FromComponentInNewPrefabResource(nameof(EventSystem)).AsSingle().NonLazy();
             
-            this.Container.Bind<LevelManager>().AsSingle();
+            this.Container.Bind<LevelManager>().AsSingle().NonLazy();
             this.Container.Bind<SettingManager>().AsSingle();
             
             this.Container.Bind<Initialiser>().FromComponentInHierarchy().AsSingle();
