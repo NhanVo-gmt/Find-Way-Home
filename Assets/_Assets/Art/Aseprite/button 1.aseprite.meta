@@ -172,6 +172,7 @@ ScriptedImporter:
     cells:
     - name: button 1_Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: -43
         y: -76
@@ -180,6 +181,7 @@ ScriptedImporter:
       spriteId: 8c595a6522b0e254589f8a282edfef90
     - name: button 1_Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
