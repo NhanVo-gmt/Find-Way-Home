@@ -10,6 +10,7 @@ namespace UIFeatures.LoadingScene
     using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.Presenter;
     using GameFoundation.Scripts.UIModule.ScreenFlow.BaseScreen.View;
     using GameFoundation.Scripts.UIModule.ScreenFlow.Managers;
+    using GameFoundation.Scripts.Utilities.ObjectPool;
     using GameFoundationBridge;
     using TMPro;
     using UnityEngine;
@@ -22,7 +23,7 @@ namespace UIFeatures.LoadingScene
         public Button settingButton;
         
         [Header("Body")]
-        public SelectLevelItemAdapter selectLevelItemAdapter;
+        public SelectLevelItemView selectLevelItemViewPrefab;
     }
 
     [ScreenInfo(nameof(SelectLevelScreenView))]
@@ -32,12 +33,17 @@ namespace UIFeatures.LoadingScene
         private readonly DiContainer     diContainer;
         private readonly IScreenManager  screenManager;
 
+        private List<SelectLevelItemView> selectLevelItemViews = new();
+        
+        private readonly ObjectPoolManager objectPoolManager;
+
         public SelectLevelScreenPresenter(SignalBus signalBus, LevelManager levelManager, 
-                                          DiContainer diContainer, IScreenManager screenManager) : base(signalBus)
+                                          DiContainer diContainer, IScreenManager screenManager, ObjectPoolManager objectPoolManager) : base(signalBus)
         {
-            this.levelManager    = levelManager;
-            this.diContainer     = diContainer;
-            this.screenManager   = screenManager;
+            this.levelManager      = levelManager;
+            this.diContainer       = diContainer;
+            this.screenManager     = screenManager;
+            this.objectPoolManager = objectPoolManager;
         }
 
         protected override void OnViewReady()
@@ -62,15 +68,16 @@ namespace UIFeatures.LoadingScene
         async Task PopulateLevelList()
         {
             List<LevelRecord> levelRecords = this.levelManager.GetAllLevels();
-            await this.View.selectLevelItemAdapter.InitItemAdapter(levelRecords.Select(record =>
-            {
-                return new SelectLevelItemModel(record);
-            }).ToList(), this.diContainer);
+            this.View.selectLevelItemViewPrefab.BindData(levelRecords.FirstOrDefault());
         }
 
         public override void Dispose()
         {
             base.Dispose();
+            
+            this.selectLevelItemViews.ForEach(item => item.Dispose());
+            this.selectLevelItemViews.Clear();
+            
             this.View.settingButton.onClick.RemoveListener(OpenSettingScreen);
         }
     }

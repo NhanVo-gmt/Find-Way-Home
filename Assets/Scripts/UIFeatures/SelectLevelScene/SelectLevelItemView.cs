@@ -1,73 +1,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using Blueprints;
-using Cysharp.Threading.Tasks;
-using GameFoundation.Scripts.AssetLibrary;
-using GameFoundation.Scripts.UIModule.MVP;
 using GameFoundation.Scripts.Utilities.ObjectPool;
-using GameFoundationBridge;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UserData.Controller;
 using Zenject;
 
-public class SelectLevelItemModel
+
+public class SelectLevelItemView : MonoBehaviour
 {
-    public readonly LevelRecord levelRecord;
-
-    public SelectLevelItemModel(LevelRecord levelRecord)
-    {
-        this.levelRecord = levelRecord;
-    }
-}
-
-public class SelectLevelItemView : TViewMono
-{
-    public TextMeshProUGUI title;
-    public SelectStageView[] stageViews;
-}
-
-
-public class SelectLevelItemPresenter : BaseUIItemPresenter<SelectLevelItemView, SelectLevelItemModel>
-{
-
+    public SelectStageView stageViewPrefab;
+    public RectTransform stageViewContent;
+    
     #region Inject
 
-    private readonly ObjectPoolManager objectPoolManager;
-    private readonly DiContainer       diContainer;
+    [Inject] private readonly ObjectPoolManager objectPoolManager;
+    [Inject] private readonly DiContainer       diContainer;
 
     #endregion
-
-    private SelectLevelItemModel  model;
     
-    public SelectLevelItemPresenter(IGameAssets gameAssets, ObjectPoolManager objectPoolManager, 
-                                    DiContainer diContainer) : base(gameAssets)
-    {
-        this.objectPoolManager = objectPoolManager;
-        this.diContainer       = diContainer;
-    }
+    private List<SelectStageView> stageViews = new();
+    private LevelRecord           levelRecord;
     
-    public override void BindData(SelectLevelItemModel model)
+    public void BindData(LevelRecord levelRecord)
     {
-        this.model = model;
+        this.levelRecord = levelRecord;
         
         InitializeStage();
-        
-        this.View.title.text = $"{model.levelRecord.Id}. {model.levelRecord.Name}";
     }
 
     void InitializeStage()
     {
-        for (int i = 0; i < this.View.stageViews.Length; i++)
+        this.stageViewPrefab.gameObject.SetActive(false);
+        
+        this.stageViews = this.levelRecord.StageRecords.Select(record =>
         {
-            this.View.stageViews[i].BindData(model.levelRecord, i + 1);
-        }
+            var instance = objectPoolManager.Spawn(this.stageViewPrefab, this.stageViewContent);
+            var position = instance.transform.localPosition;
+            position.z                       = 0;
+            instance.transform.localPosition = position;
+            instance.transform.localScale    = Vector3.one;
+            diContainer.Inject(instance);
+            instance.BindData(this.levelRecord, record.StageIndex);
+            
+            instance.gameObject.SetActive(true);
+            return instance;
+        }).ToList();
     }
 
-    public override void Dispose()
+    public void Dispose()
     {
-        base.Dispose();
+        this.stageViews.ForEach(view => { view.Recycle(); });
+        this.stageViews.Clear();
     }
 }
 
