@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,8 +436,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4203030511821864182, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 925344089373917993}
+    - targetCorrespondingSourceObject: {fileID: 7250023697852551578, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 925344089373917992}
   m_SourcePrefab: {fileID: 100100000, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+--- !u!1 &925344089373917990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7250023697852551578, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+  m_PrefabInstance: {fileID: 925344089373917989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &925344089373917991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203030511821864182, guid: 7946b03044c344a4d85caaff6ebdafff, type: 3}
+  m_PrefabInstance: {fileID: 925344089373917989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &925344089373917992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925344089373917990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49983b5d18820e8429ac00c7ec1b7e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: button_sound
+--- !u!114 &925344089373917993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925344089373917991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49983b5d18820e8429ac00c7ec1b7e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: button_sound
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
