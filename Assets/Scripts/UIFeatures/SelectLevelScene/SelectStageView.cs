@@ -12,6 +12,7 @@ using Zenject;
 public class SelectStageView : MonoBehaviour
 {
     public Button          btn;
+    public TextMeshProUGUI numText;
 
     private LevelRecord levelRecord;
     private int         index;
@@ -23,6 +24,8 @@ public class SelectStageView : MonoBehaviour
         this.GetCurrentContainer().Inject(this);
         this.levelRecord = levelRecord;
         this.index       = index;
+
+        numText.text = index.ToString();
         
         btn.onClick.AddListener(() =>
         {
