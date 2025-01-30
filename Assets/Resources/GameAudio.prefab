@@ -238,5 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f765aa5252323c41bb20ddc0f3e4d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preloadSounds:
+  - clipName: button_sound
+    clip: {fileID: 8300000, guid: 1f0daa815f2045a4facc24650fbe23c0, type: 3}
   musicAudioSource: {fileID: 3602327309823050452}
   soundAudioSource: {fileID: 156419966534055458}

@@ -78,6 +78,11 @@
         public virtual async void PlaySound(string name, AudioSource sender)
         {
             var audioClip = await this.gameAssets.LoadAssetAsync<AudioClip>(name);
+            PlaySound(audioClip, sender);
+        }
+        
+        public virtual async void PlaySound(AudioClip audioClip, AudioSource sender)
+        {
             sender.PlayOneShotSoundManaged(audioClip);
         }
 

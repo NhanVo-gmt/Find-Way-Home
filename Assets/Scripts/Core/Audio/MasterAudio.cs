@@ -1,14 +1,25 @@
 using System;
+using System.Collections.Generic;
 using GameFoundation.Scripts.Utilities;
 using GameFoundation.Scripts.Utilities.Extension;
 using Setting;
 using UnityEngine;
 using Zenject;
 
+
+[Serializable]
+public class MasterAudioClip
+{
+    public string    clipName;
+    public AudioClip clip;
+}
+
 public class MasterAudio : MonoBehaviour
 {
-    public static MasterAudio Instance;
-    private const string WINSOUND = "win_sound";
+    [SerializeField] private List<MasterAudioClip> preloadSounds = new();
+    
+    public static MasterAudio  Instance;
+    private const string       WINSOUND = "win_sound";
 
     public AudioSource musicAudioSource;
     public AudioSource soundAudioSource;
@@ -44,7 +55,6 @@ public class MasterAudio : MonoBehaviour
 
     public void ToggleSound()
     {
-        Debug.Log(123);
         settingManager.SetSoundState(soundAudioSource.mute);
         soundAudioSource.mute = !soundAudioSource.mute;
     }
@@ -56,6 +66,15 @@ public class MasterAudio : MonoBehaviour
 
     public void PlaySound(string sound)
     {
+        foreach (var masterAudioClip in preloadSounds)
+        {
+            if (masterAudioClip.clipName == sound)
+            {
+                AudioManager.Instance.PlaySound(masterAudioClip.clip, soundAudioSource);
+                return;
+            }
+        }
+        
         AudioManager.Instance.PlaySound(sound, soundAudioSource);
     }
 }
