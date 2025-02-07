@@ -5,7 +5,7 @@ public class Teleport : MonoBehaviour
     [SerializeField] private Teleport  teleport;
     [SerializeField] private Transform appearPos;
 
-    public Transform GetAppearPosition()
+    public Vector2 GetAppearPosition()
     {
         return appearPos;
     }
@@ -14,7 +14,7 @@ public class Teleport : MonoBehaviour
     {
         if (other.GetComponent<Character>())
         {
-            other.transform.position = teleport.GetAppearPosition().position;
+            other.transform.position = teleport.GetAppearPosition();
         }
     }
 }
