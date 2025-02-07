@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7685066412703404255
+--- !u!1001 &2856196374422607629
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2110639095921203631, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
       propertyPath: m_Name
-      value: Back
+      value: Esc_7 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5514793592089356200, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.85
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5514793592089356200, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 5514793592089356200, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,25 +59,25 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2110639095921203631, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 960104178842921250}
+      addedObject: {fileID: 4810975726816218508}
   m_SourcePrefab: {fileID: 100100000, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
---- !u!1 &8641466762230466928 stripped
+--- !u!1 &4244994954148482722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2110639095921203631, guid: e9bc26d3e08d4fa42934ff449d85f748, type: 3}
-  m_PrefabInstance: {fileID: 7685066412703404255}
+  m_PrefabInstance: {fileID: 2856196374422607629}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &960104178842921250
+--- !u!114 &4810975726816218508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8641466762230466928}
+  m_GameObject: {fileID: 4244994954148482722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945d1187c5fae3f4fa8ce610f6023b68, type: 3}
+  m_Script: {fileID: 11500000, guid: 7940ab334d1d27e4cb7029f3e60d18cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normal: {fileID: 1293040650, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
   pressed: {fileID: -1253554738, guid: 58038fb5876006545b603050b9f4a13f, type: 3}
-  walls: []
+  dropItems: []
