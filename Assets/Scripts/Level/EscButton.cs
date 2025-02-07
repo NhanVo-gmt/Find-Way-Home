@@ -3,34 +3,19 @@ using UnityEngine;
 using UserData.Controller;
 using Zenject;
 
-public class EscButton : MonoBehaviour
+public class EscButton : ButtonBehaviour
 {
     [Inject] private LevelManager levelManager;
-
-    public Sprite normal;
-    public Sprite pressed;
-    
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer        = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = normal;
-    }
-    
 
     private void Start()
     {
         this.GetCurrentContainer().Inject(this);
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+
+    protected override void OnPlayerPressed()
     {
-        if (other.GetComponent<Character>())
-        {
-            spriteRenderer.sprite = pressed;
-            levelManager.ShowLoseScreen();
-        }
+        base.OnPlayerPressed();
+        levelManager.ShowLoseScreen();
     }
-    
 }
