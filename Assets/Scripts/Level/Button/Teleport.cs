@@ -7,7 +7,7 @@ public class Teleport : MonoBehaviour
 
     public Vector2 GetAppearPosition()
     {
-        return appearPos;
+        return appearPos.position;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
